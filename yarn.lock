@@ -53,6 +53,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@neet/abbyy-cloud-ocr-sdk.js@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@neet/abbyy-cloud-ocr-sdk.js@workspace:."
+  dependencies:
+    "@rollup/plugin-commonjs": ^23.0.0
+    "@rollup/plugin-json": ^5.0.0
+    "@semantic-release/changelog": ^6.0.1
+    "@semantic-release/git": ^10.0.1
+    "@tsconfig/node18": ^1.0.1
+    "@types/node": ^18.8.4
+    rollup: ^3.0.0
+    rollup-plugin-auto-external: ^2.0.0
+    rollup-plugin-dts: ^4.2.3
+    rollup-plugin-typescript2: ^0.34.1
+    semantic-release: ^19.0.5
+    typescript: ^4.8.4
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -660,25 +679,6 @@ __metadata:
   checksum: a4a97ec07d7ea112c517036882b2ac22f3109b7b19077dc656316d07d308438aac28e4d9746dc4d84bf6b1e75b4a7b0a5f3cb30592419f128ca9a8cee3bcfa17
   languageName: node
   linkType: hard
-
-"abbyy-cloud-ocr-sdk.js@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "abbyy-cloud-ocr-sdk.js@workspace:."
-  dependencies:
-    "@rollup/plugin-commonjs": ^23.0.0
-    "@rollup/plugin-json": ^5.0.0
-    "@semantic-release/changelog": ^6.0.1
-    "@semantic-release/git": ^10.0.1
-    "@tsconfig/node18": ^1.0.1
-    "@types/node": ^18.8.4
-    rollup: ^3.0.0
-    rollup-plugin-auto-external: ^2.0.0
-    rollup-plugin-dts: ^4.2.3
-    rollup-plugin-typescript2: ^0.34.1
-    semantic-release: ^19.0.5
-    typescript: ^4.8.4
-  languageName: unknown
-  linkType: soft
 
 "agent-base@npm:6, agent-base@npm:^6.0.2":
   version: 6.0.2
