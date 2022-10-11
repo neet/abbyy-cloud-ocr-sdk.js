@@ -1,0 +1,1 @@
+# abbyy-cloud-ocr-sdk.js
