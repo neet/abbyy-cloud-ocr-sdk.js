@@ -7,13 +7,13 @@ An [Abbyy Cloud OCR SDK](https://cloud.ocrsdk.com/) API client for Node.js
 Add registry of GitHub Packages to install this package
 
 ```
-echo "@neet:registry=https://npm.pkg.github.com/" >> .npmrc
+echo "@neet:registry=https://npm.pkg.github.com/" >> ~/.npmrc
 ```
 
 Then
 
 ```
-yarn add @neet/abbyy-cloud-ocr.js
+npm install @neet/abbyy-cloud-ocr.js
 ```
 
 ## Usage
