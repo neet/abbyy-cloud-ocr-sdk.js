@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.0...v1.0.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* Add write permission for issues and pull-requests ([16288a7](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/16288a780bccd90a400c78f521607aa69a87e005))
+
 # 1.0.0 (2022-10-11)
 
 
