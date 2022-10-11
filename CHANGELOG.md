@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.2...v1.0.3) (2022-10-11)
+
+
+### Bug Fixes
+
+* Yield task before returning ([6c93d51](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/6c93d5102873aff7bdc5e460a664ca71f4310346))
+
 ## [1.0.2](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.1...v1.0.2) (2022-10-11)
 
 
