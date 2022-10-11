@@ -9,18 +9,18 @@ export class TaskObserverPolling implements TaskObserver {
   public async *observe(taskId: string): AsyncIterable<Task> {
     while (true) {
       const task = await this._client.getTaskStatus({ taskId });
+      yield task;
 
       if (
         task.status === "InProgress" ||
         task.status === "Queued" ||
         task.status === "Submitted"
       ) {
-        yield task;
         await delay(Math.max(task.requestStatusDelay, 100));
         continue;
       }
 
-      return task;
+      return;
     }
   }
 }
