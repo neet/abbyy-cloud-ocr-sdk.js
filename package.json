@@ -1,5 +1,5 @@
 {
-  "name": "abbyy-cloud-ocr-sdk.js",
+  "name": "@neet/abbyy-cloud-ocr-sdk.js",
   "version": "0.0.0-development",
   "packageManager": "yarn@3.2.3",
   "main": "./dist/index.js",
