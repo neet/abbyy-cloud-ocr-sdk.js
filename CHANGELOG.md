@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.3...v1.0.4) (2022-10-11)
+
+
+### Bug Fixes
+
+* Add eslint ([3780745](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/3780745b18c8e18dc0dcb82f894bd8844fa6950e))
+
 ## [1.0.3](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.2...v1.0.3) (2022-10-11)
 
 
