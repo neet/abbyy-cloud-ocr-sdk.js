@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.1...v1.0.2) (2022-10-11)
+
+
+### Bug Fixes
+
+* Add publishConfig ([1e70ba3](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/1e70ba386dce4e71e141033fb4ff0cb2933bfdee))
+
 ## [1.0.1](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.0...v1.0.1) (2022-10-11)
 
 
