@@ -1,58 +1,56 @@
-import {
-  DeleteTaskParams,
-  GetTaskStatusParams,
-  ListTasksParams,
-  ProcessBarcodeField,
-  ProcessBusinessCard,
-  ProcessCheckmarkField,
-  ProcessDocumentParams,
-  ProcessFieldsParams,
-  ProcessTextFieldParams,
-  SubmitImageParams,
+import type {
+  DeleteTaskParameters,
+  GetTaskStatusParameters,
+  ListTasksParameters,
+  ProcessBarcodeFieldParameters,
+  ProcessBusinessCardParameters,
+  ProcessCheckmarkFieldParameters,
+  ProcessDocumentParameters,
+  ProcessFieldsParameters,
+  ProcessTextFieldParameters,
+  SubmitImageParameters,
 } from "../components/request-bodies";
-import { ApplicationInfo, Task, TaskList } from "../components/schemas";
+import type { ApplicationInfo, Task, TaskList } from "../components/schemas";
 
 export interface IClientV2 {
-  processDocument(
+  submitImage: (
     image: unknown,
-    params?: ProcessDocumentParams
-  ): Promise<Task>;
+    parameters?: SubmitImageParameters
+  ) => Promise<Task>;
 
-  submitImage(image: unknown, params?: SubmitImageParams): Promise<Task>;
+  processDocument: (parameters: ProcessDocumentParameters) => Promise<Task>;
 
-  processDocument(params?: ProcessDocumentParams): Promise<Task>;
-
-  processBusinessCard(
+  processBusinessCard: (
     image: unknown,
-    params?: ProcessBusinessCard
-  ): Promise<Task>;
+    parameters?: ProcessBusinessCardParameters
+  ) => Promise<Task>;
 
-  processTextField(
+  processTextField: (
     image: unknown,
-    params?: ProcessTextFieldParams
-  ): Promise<Task>;
+    parameters?: ProcessTextFieldParameters
+  ) => Promise<Task>;
 
-  processCheckmarkField(
+  processCheckmarkField: (
     image: unknown,
-    params?: ProcessCheckmarkField
-  ): Promise<Task>;
+    parameters?: ProcessCheckmarkFieldParameters
+  ) => Promise<Task>;
 
-  processBarcodeField(
+  processBarcodeField: (
     image: unknown,
-    params?: ProcessBarcodeField
-  ): Promise<Task>;
+    parameters?: ProcessBarcodeFieldParameters
+  ) => Promise<Task>;
 
-  processFields(params: ProcessFieldsParams): Promise<Task>;
+  processFields: (parameters: ProcessFieldsParameters) => Promise<Task>;
 
-  processMRZ(image: unknown): Promise<Task>;
+  processMRZ: (image: unknown) => Promise<Task>;
 
-  getTaskStatus(params: GetTaskStatusParams): Promise<Task>;
+  getTaskStatus: (parameters: GetTaskStatusParameters) => Promise<Task>;
 
-  deleteTask(params: DeleteTaskParams): Promise<Task>;
+  deleteTask: (parameters: DeleteTaskParameters) => Promise<Task>;
 
-  listFinishedTasks(params?: ListTasksParams): Promise<TaskList>;
+  listFinishedTasks: (parameters?: ListTasksParameters) => Promise<TaskList>;
 
-  listTasks(params?: ListTasksParams): Promise<TaskList>;
+  listTasks: (parameters?: ListTasksParameters) => Promise<TaskList>;
 
-  getApplicationInfo(): Promise<ApplicationInfo>;
+  getApplicationInfo: () => Promise<ApplicationInfo>;
 }

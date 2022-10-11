@@ -1,4 +1,5 @@
-import { IHttp } from "./http";
+/* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
+import type { IHttp } from "./http";
 
 export class HttpFetch implements IHttp {
   public constructor(
@@ -7,24 +8,27 @@ export class HttpFetch implements IHttp {
     private readonly _password: string
   ) {}
 
-  public async get<T>(path: string, params: unknown = {}): Promise<T> {
-    return await this._request(path, params, { method: "GET" });
+  public async get<T>(path: string, parameters: unknown = {}): Promise<T> {
+    return this._request(path, parameters, { method: "GET" });
   }
 
   public async post<T>(
     path: string,
-    body?: BodyInit,
-    params: unknown = {}
+    body?: unknown,
+    parameters: unknown = {}
   ): Promise<T> {
-    return await this._request(path, params, { method: "POST", body });
+    return this._request(path, parameters, {
+      method: "POST",
+      body: body as BodyInit,
+    });
   }
 
   private async _request<T>(
     path: string,
-    params: unknown,
+    parameters: unknown,
     init: RequestInit
   ): Promise<T> {
-    const query = new URLSearchParams(params as string[][]).toString();
+    const query = new URLSearchParams(parameters as string[][]).toString();
 
     const auth = `${this._applicationId}:${this._password}`;
     const base64 = Buffer.from(auth).toString("base64");
@@ -38,6 +42,6 @@ export class HttpFetch implements IHttp {
       throw await data.json();
     }
 
-    return data.json();
+    return (await data.json()) as T;
   }
 }

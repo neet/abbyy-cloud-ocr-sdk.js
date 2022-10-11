@@ -1,19 +1,20 @@
-import {
-  DeleteTaskParams,
-  GetTaskStatusParams,
-  ListTasksParams,
-  ProcessBarcodeField,
-  ProcessBusinessCard,
-  ProcessCheckmarkField,
-  ProcessDocumentParams,
-  ProcessFieldsParams,
-  ProcessImageParams,
-  ProcessTextFieldParams,
-  SubmitImageParams,
+/* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
+import type { ApplicationInfo, Task, TaskList } from "../components";
+import type {
+  DeleteTaskParameters,
+  GetTaskStatusParameters,
+  ListTasksParameters,
+  ProcessBarcodeFieldParameters,
+  ProcessBusinessCardParameters,
+  ProcessCheckmarkFieldParameters,
+  ProcessDocumentParameters,
+  ProcessFieldsParameters,
+  ProcessImageParameters,
+  ProcessTextFieldParameters,
+  SubmitImageParameters,
 } from "../components/request-bodies";
-import { ApplicationInfo, Task, TaskList } from "../components";
 import { HttpFetch } from "../http";
-import { IClientV2 } from "./client";
+import type { IClientV2 } from "./client";
 
 export class ClientV2 implements IClientV2 {
   private readonly _http: HttpFetch;
@@ -22,77 +23,85 @@ export class ClientV2 implements IClientV2 {
     this._http = new HttpFetch(baseUrl, applicationId, password);
   }
 
-  public processImage(
-    image: BodyInit,
-    params?: ProcessImageParams
+  public async processImage(
+    image: unknown,
+    parameters?: ProcessImageParameters
   ): Promise<Task> {
-    return this._http.post("/v2/processImage", image, params);
+    return this._http.post("/v2/processImage", image, parameters);
   }
 
-  public submitImage(
-    image: BodyInit,
-    params?: SubmitImageParams
+  public async submitImage(
+    image: unknown,
+    parameters?: SubmitImageParameters
   ): Promise<Task> {
-    return this._http.post("/v2/submitImage", image, params);
+    return this._http.post("/v2/submitImage", image, parameters);
   }
 
-  public processDocument(params: ProcessDocumentParams): Promise<Task> {
-    return this._http.post("/v2/processDocument", undefined, params);
-  }
-
-  public processBusinessCard(
-    image: BodyInit,
-    params?: ProcessBusinessCard
+  public async processDocument(
+    parameters: ProcessDocumentParameters
   ): Promise<Task> {
-    return this._http.post("/v2/processBusinessCard", image, params);
+    return this._http.post("/v2/processDocument", undefined, parameters);
   }
 
-  public processTextField(
-    image: BodyInit,
-    params?: ProcessTextFieldParams
+  public async processBusinessCard(
+    image: unknown,
+    parameters?: ProcessBusinessCardParameters
   ): Promise<Task> {
-    return this._http.post("/v2/processTextField", image, params);
+    return this._http.post("/v2/processBusinessCard", image, parameters);
   }
 
-  public processCheckmarkField(
-    image: BodyInit,
-    params?: ProcessCheckmarkField
+  public async processTextField(
+    image: unknown,
+    parameters?: ProcessTextFieldParameters
   ): Promise<Task> {
-    return this._http.post("/v2/processChekmarkField", image, params);
+    return this._http.post("/v2/processTextField", image, parameters);
   }
 
-  public processBarcodeField(
-    image: BodyInit,
-    params?: ProcessBarcodeField
+  public async processCheckmarkField(
+    image: unknown,
+    parameters?: ProcessCheckmarkFieldParameters
   ): Promise<Task> {
-    return this._http.post("/v2/processBarcodeField", image, params);
+    return this._http.post("/v2/processChekmarkField", image, parameters);
   }
 
-  public processFields(params: ProcessFieldsParams): Promise<Task> {
-    return this._http.post("/v2/processFields", undefined, params);
+  public async processBarcodeField(
+    image: unknown,
+    parameters?: ProcessBarcodeFieldParameters
+  ): Promise<Task> {
+    return this._http.post("/v2/processBarcodeField", image, parameters);
   }
 
-  public processMRZ(image: BodyInit): Promise<Task> {
+  public async processFields(
+    parameters: ProcessFieldsParameters
+  ): Promise<Task> {
+    return this._http.post("/v2/processFields", undefined, parameters);
+  }
+
+  public async processMRZ(image: unknown): Promise<Task> {
     return this._http.post("/v2/processMRZ", image);
   }
 
-  public getTaskStatus(params: GetTaskStatusParams): Promise<Task> {
-    return this._http.get("/v2/getTaskStatus", params);
+  public async getTaskStatus(
+    parameters: GetTaskStatusParameters
+  ): Promise<Task> {
+    return this._http.get("/v2/getTaskStatus", parameters);
   }
 
-  public deleteTask(params: DeleteTaskParams): Promise<Task> {
-    return this._http.post("/v2/deleteTask", undefined, params);
+  public async deleteTask(parameters: DeleteTaskParameters): Promise<Task> {
+    return this._http.post("/v2/deleteTask", undefined, parameters);
   }
 
-  public listFinishedTasks(params?: ListTasksParams): Promise<TaskList> {
-    return this._http.get("/v2/listFinishedTasks", params);
+  public async listFinishedTasks(
+    parameters?: ListTasksParameters
+  ): Promise<TaskList> {
+    return this._http.get("/v2/listFinishedTasks", parameters);
   }
 
-  public listTasks(params?: ListTasksParams): Promise<TaskList> {
-    return this._http.get("/v2/listFinishedTasks", params);
+  public async listTasks(parameters?: ListTasksParameters): Promise<TaskList> {
+    return this._http.get("/v2/listFinishedTasks", parameters);
   }
 
-  public getApplicationInfo(): Promise<ApplicationInfo> {
+  public async getApplicationInfo(): Promise<ApplicationInfo> {
     return this._http.get("/v2/getApplicationInfo");
   }
 }
