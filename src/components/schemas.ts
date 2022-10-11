@@ -1,11 +1,11 @@
 export type TaskStatus =
-  | "Submitted"
-  | "Queued"
-  | "InProgress"
   | "Completed"
-  | "ProcessingFailed"
   | "Deleted"
-  | "NotEnoughCredits";
+  | "InProgress"
+  | "NotEnoughCredits"
+  | "ProcessingFailed"
+  | "Queued"
+  | "Submitted";
 
 export interface Task {
   taskId: string;

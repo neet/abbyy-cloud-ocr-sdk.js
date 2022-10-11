@@ -1,12 +1,13 @@
-import { ClientV2 } from "../client";
-import { Task } from "../components";
+import type { ClientV2 } from "../client";
+import type { Task } from "../components";
 import { delay } from "./delay";
-import { TaskObserver } from "./task-observer";
+import type { TaskObserver } from "./task-observer";
 
 export class TaskObserverPolling implements TaskObserver {
   public constructor(private readonly _client: ClientV2) {}
 
   public async *observe(taskId: string): AsyncIterable<Task> {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     while (true) {
       const task = await this._client.getTaskStatus({ taskId });
       yield task;

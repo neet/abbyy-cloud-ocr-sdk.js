@@ -1,5 +1,5 @@
-import { Task } from "../components/schemas";
+import type { Task } from "../components/schemas";
 
 export interface TaskObserver {
-  observe(taskId: string): AsyncIterable<Task>;
+  observe: (taskId: string) => AsyncIterable<Task>;
 }

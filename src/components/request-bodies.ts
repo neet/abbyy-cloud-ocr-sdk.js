@@ -1,75 +1,76 @@
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 export type Profile =
-  | "documentConversion"
+  | "barcodeRecognition"
   | "documentArchiving"
-  | "textExtraction"
-  | "barcodeRecognition";
+  | "documentConversion"
+  | "textExtraction";
 
 export type TextType =
-  | "normal"
-  | "typewriter"
-  | "matrix"
+  | string
+  | "cmc7"
+  | "e13b"
+  | "gothic"
   | "index"
+  | "matrix"
+  | "normal"
   | "ocrA"
   | "ocrB"
-  | "e13b"
-  | "cmc7"
-  | "gothic"
-  | string;
+  | "typewriter";
 
 export type ImageSource = "auto" | "photo" | "scanner";
 
 export type DocumentExportFormat =
-  | "txt"
-  | "rtf"
-  | "txtUnstructured"
+  | string
+  | "alto"
   | "docx"
-  | "xlsx"
-  | "pptx"
+  | "pdfa"
   | "pdfSearchable"
   | "pdfTextAndImages"
-  | "pdfa"
+  | "pptx"
+  | "rtf"
+  | "txt"
+  | "txtUnstructured"
+  | "xlsx"
   | "xml"
-  | "xmlForCorrectedImage"
-  | "alto"
-  | string;
+  | "xmlForCorrectedImage";
 
-export type BusinessCardExportFormat = "vCard" | "csv" | "xml";
+export type BusinessCardExportFormat = "csv" | "vCard" | "xml";
 
-export type PdfWriteTags = "auto" | "write" | "dontWrite";
+export type PdfWriteTags = "auto" | "dontWrite" | "write";
 
 export type MarkingType =
-  | "simpleText"
-  | "underlinedText"
-  | "textInFrame"
-  | "greyBOxes"
   | "charBoxSeries"
-  | "simpleComb"
   | "combInFrame"
-  | "partitionedFrame";
+  | "greyBOxes"
+  | "partitionedFrame"
+  | "simpleComb"
+  | "simpleText"
+  | "textInFrame"
+  | "underlinedText";
 
 export type CheckmarkType = "circle" | "empty" | "square";
 
 export type BarcodeType =
   | "autodetect"
-  | "patch"
+  | "aztec"
+  | "codabar"
   | "code39"
   | "code93"
   | "code128"
-  | "ucc128"
-  | "interleaved25"
-  | "industrial25"
-  | "iata25"
-  | "matrix25"
+  | "dataMatrix"
   | "ean8"
   | "ean13"
-  | "codabar"
-  | "upca"
-  | "upce"
-  | "postNet"
-  | "aztec"
-  | "dataMatrix"
+  | "iata25"
+  | "industrial25"
+  | "interleaved25"
+  | "matrix25"
+  | "patch"
   | "pdf417"
-  | "qrCode";
+  | "postNet"
+  | "qrCode"
+  | "ucc128"
+  | "upca"
+  | "upce";
 
 export interface MethodWithImage {
   readonly pdfPassword?: string;
@@ -80,7 +81,7 @@ export interface MethodWithoutImage {
   readonly description?: string;
 }
 
-export interface ProcessImageParams extends MethodWithImage {
+export interface ProcessImageParameters extends MethodWithImage {
   readonly language?: string;
   readonly profile?: Profile;
   readonly textType?: TextType;
@@ -96,7 +97,7 @@ export interface ProcessImageParams extends MethodWithImage {
   readonly "txtUnstructured:paragraphAsOneLine"?: boolean;
 }
 
-export interface ProcessBusinessCard extends MethodWithImage {
+export interface ProcessBusinessCardParameters extends MethodWithImage {
   readonly language?: string;
   readonly imageSource?: ImageSource;
   readonly correctOrientation?: boolean;
@@ -106,7 +107,7 @@ export interface ProcessBusinessCard extends MethodWithImage {
   readonly "xml:writeFieldComponents"?: boolean;
 }
 
-export interface ProcessTextFieldParams extends MethodWithImage {
+export interface ProcessTextFieldParameters extends MethodWithImage {
   readonly region?: string;
   readonly language?: string;
   readonly letterSet?: string;
@@ -119,17 +120,17 @@ export interface ProcessTextFieldParams extends MethodWithImage {
   readonly writingStyle?: string;
 }
 
-export interface ProcessFieldsParams extends MethodWithoutImage {
+export interface ProcessFieldsParameters extends MethodWithoutImage {
   readonly writeRecognitionVariants?: boolean;
 }
 
-export interface ProcessCheckmarkField extends MethodWithImage {
+export interface ProcessCheckmarkFieldParameters extends MethodWithImage {
   readonly region?: string;
   readonly checkmarkType?: CheckmarkType;
   readonly correctionAllowed?: boolean;
 }
 
-export interface ProcessDocumentParams extends MethodWithoutImage {
+export interface ProcessDocumentParameters extends MethodWithoutImage {
   readonly language?: string;
   readonly profile?: Profile;
   readonly textType?: TextType;
@@ -145,27 +146,27 @@ export interface ProcessDocumentParams extends MethodWithoutImage {
   readonly "txtUnstructured:paragraphAsOneLine"?: boolean;
 }
 
-export interface ProcessBarcodeField extends MethodWithImage {
+export interface ProcessBarcodeFieldParameters extends MethodWithImage {
   readonly region?: string;
   readonly barcodeType?: BarcodeType;
   readonly containBinaryData?: boolean;
 }
 
-export interface SubmitImageParams {
+export interface SubmitImageParameters {
   readonly taskId?: string;
   readonly pdfPassword?: string;
 }
 
-export interface ListTasksParams {
+export interface ListTasksParameters {
   readonly fromDate?: string;
   readonly toDate?: string;
   readonly excludeDeleted?: boolean;
 }
 
-export interface GetTaskStatusParams {
-  taskId: string;
+export interface GetTaskStatusParameters {
+  readonly taskId: string;
 }
 
-export interface DeleteTaskParams {
-  taskId: string;
+export interface DeleteTaskParameters {
+  readonly taskId: string;
 }
