@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.1.0...v1.1.1) (2023-01-02)
+
+
+### Bug Fixes
+
+* Use ES Module ([b90135c](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/b90135c7d22f321cfe8920a2315daff9cb05b6a8))
+
 # [1.1.0](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.4...v1.1.0) (2023-01-02)
 
 
