@@ -21,7 +21,7 @@ npm install @neet/abbyy-cloud-ocr.js
 ```ts
 import fs from "node:fs";
 import stream from "node:stream";
-import { ClientV2 } from "@neet/abbyy-cloud-ocr-sdk.js";
+import { createClient } from "@neet/abbyy-cloud-ocr-sdk.js";
 
 // Your API endpoint. See https://support.abbyy.com/hc/en-us/articles/360017269920-Data-processing-location
 const BASE_URL = "https://cloud-westus.ocrsdk.com";
@@ -30,7 +30,11 @@ const BASE_URL = "https://cloud-westus.ocrsdk.com";
 const APPLICATION_ID = "<Your application id>";
 const APPLICATION_PASSWORD = "<Your application password>";
 
-const client = new ClientV2(BASE_URL, APPLICATION_ID, APPLICATION_PASSWORD);
+const client = createClient({
+  baseUrl: BASE_URL,
+  applicationId: APPLICATION_ID,
+  password: APPLICATION_PASSWORD,
+});
 
 // Run OCR!
 const task = await client.processImage(
@@ -44,7 +48,7 @@ For observing the task status to be completed, we also offer a useful utility ca
 ```ts
 import { ClientV2, TaskObserverPolling } from "@neet/abbyy-cloud-ocr-sdk.js";
 
-const client = new ClientV2(BASE_URL, APPLICATION_ID, APPLICATION_PASSWORD);
+const client = createClient("...");
 const observer = new TaskObserverPolling(client);
 
 //...
@@ -58,4 +62,5 @@ for await (const task of observer.observe(submitImage.taskId)) {
 ```
 
 ## License
+
 MIT
