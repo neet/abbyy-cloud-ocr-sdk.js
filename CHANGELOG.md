@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.4...v1.1.0) (2023-01-02)
+
+
+### Bug Fixes
+
+* Fix typo ([86638cf](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/86638cf91488dc5be3c194a259804e90b0b2d3e5))
+
+
+### Features
+
+* Add factory function ([bbfd062](https://github.com/neet/abbyy-cloud-ocr-sdk.js/commit/bbfd062dae949481789362c41f7759fa6fe8ed0c))
+
 ## [1.0.4](https://github.com/neet/abbyy-cloud-ocr-sdk.js/compare/v1.0.3...v1.0.4) (2022-10-11)
 
 
