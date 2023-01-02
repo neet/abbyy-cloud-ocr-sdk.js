@@ -1,4 +1,11 @@
 export interface IHttp {
-  get: <T>(path: string, parameters: unknown) => Promise<T>;
-  post: <T>(path: string, body: unknown, parameters: unknown) => Promise<T>;
+  readonly get: <T>(
+    path: string,
+    parameters?: Readonly<Record<string, unknown>>
+  ) => Promise<T>;
+  readonly post: <T>(
+    path: string,
+    body: unknown,
+    parameters?: Readonly<Record<string, unknown>>
+  ) => Promise<T>;
 }

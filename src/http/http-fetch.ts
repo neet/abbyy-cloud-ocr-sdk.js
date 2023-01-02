@@ -8,14 +8,17 @@ export class HttpFetch implements IHttp {
     private readonly _password: string
   ) {}
 
-  public async get<T>(path: string, parameters: unknown = {}): Promise<T> {
+  public async get<T>(
+    path: string,
+    parameters: Record<string, unknown> = {}
+  ): Promise<T> {
     return this._request(path, parameters, { method: "GET" });
   }
 
   public async post<T>(
     path: string,
     body?: unknown,
-    parameters: unknown = {}
+    parameters: Record<string, unknown> = {}
   ): Promise<T> {
     return this._request(path, parameters, {
       method: "POST",
@@ -25,15 +28,18 @@ export class HttpFetch implements IHttp {
 
   private async _request<T>(
     path: string,
-    parameters: unknown,
+    parameters: Record<string, unknown>,
     init: RequestInit
   ): Promise<T> {
-    const query = new URLSearchParams(parameters as string[][]).toString();
-
     const auth = `${this._applicationId}:${this._password}`;
     const base64 = Buffer.from(auth).toString("base64");
 
-    const data = await fetch(`${this._baseUrl}${path}?${query}`, {
+    const url = new URL(path, this._baseUrl);
+    for (const [key, value] of Object.entries(parameters)) {
+      url.searchParams.set(key, value as string);
+    }
+
+    const data = await fetch(url, {
       ...init,
       headers: { ...init.headers, Authorization: `Basic ${base64}` },
     });
