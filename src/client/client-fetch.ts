@@ -61,7 +61,7 @@ export class ClientV2 implements IClientV2 {
     image: unknown,
     parameters?: ProcessCheckmarkFieldParameters
   ): Promise<Task> {
-    return this._http.post("/v2/processChekmarkField", image, parameters);
+    return this._http.post("/v2/processCheckmarkField", image, parameters);
   }
 
   public async processBarcodeField(
@@ -98,7 +98,7 @@ export class ClientV2 implements IClientV2 {
   }
 
   public async listTasks(parameters?: ListTasksParameters): Promise<TaskList> {
-    return this._http.get("/v2/listFinishedTasks", parameters);
+    return this._http.get("/v2/listTasks", parameters);
   }
 
   public async getApplicationInfo(): Promise<ApplicationInfo> {
