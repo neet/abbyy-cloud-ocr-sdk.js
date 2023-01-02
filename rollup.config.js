@@ -10,7 +10,7 @@ export default [
   {
     input: "./src/index.ts",
     output: {
-      file: packageJSON.main,
+      file: packageJSON.exports["."].require,
       format: "cjs",
     },
     plugins: [json(), typescript(), autoExternal()],
@@ -18,7 +18,7 @@ export default [
   {
     input: "./src/index.ts",
     output: {
-      file: packageJSON.module,
+      file: packageJSON.exports["."].default,
       format: "esm",
     },
     plugins: [commonjs(), json(), typescript(), autoExternal()],
@@ -26,7 +26,7 @@ export default [
   {
     input: "./src/index.ts",
     output: {
-      file: packageJSON.types,
+      file: packageJSON.exports["."].types,
       format: "esm",
     },
     plugins: [dts()],

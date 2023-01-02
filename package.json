@@ -2,14 +2,22 @@
   "name": "@neet/abbyy-cloud-ocr-sdk.js",
   "version": "1.1.0",
   "packageManager": "yarn@3.2.3",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "eslint './src/**/*.{ts,tsx}'",
-    "build": "rollup -c rollup.config.mjs",
+    "build": "rollup -c rollup.config.js",
     "prepublishOnly": "yarn run build",
     "semantic-release": "semantic-release"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
   },
   "files": [
     "README.md",

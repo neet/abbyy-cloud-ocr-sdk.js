@@ -8,19 +8,18 @@ export class HttpFetch implements IHttp {
     private readonly _password: string
   ) {}
 
-  public async get<T>(
-    path: string,
-    parameters: Record<string, unknown> = {}
-  ): Promise<T> {
-    return this._request(path, parameters, { method: "GET" });
+  public async get<T>(path: string, parameters: unknown = {}): Promise<T> {
+    return this._request(path, parameters as Record<string, unknown>, {
+      method: "GET",
+    });
   }
 
   public async post<T>(
     path: string,
     body?: unknown,
-    parameters: Record<string, unknown> = {}
+    parameters: unknown = {}
   ): Promise<T> {
-    return this._request(path, parameters, {
+    return this._request(path, parameters as Record<string, unknown>, {
       method: "POST",
       body: body as BodyInit,
     });

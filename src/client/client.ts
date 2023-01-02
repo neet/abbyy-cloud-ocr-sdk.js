@@ -1,5 +1,5 @@
-import type { ApplicationInfo, Task, TaskList } from "../components";
 import type {
+  ApplicationInfo,
   DeleteTaskParameters,
   GetTaskStatusParameters,
   ListTasksParameters,
@@ -11,7 +11,9 @@ import type {
   ProcessImageParameters,
   ProcessTextFieldParameters,
   SubmitImageParameters,
-} from "../components/request-bodies";
+  Task,
+  TaskList,
+} from "../components";
 import type { IHttp } from "../http";
 
 export class ClientV2 {
